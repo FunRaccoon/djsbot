@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "nodemon": "npm run index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "discord-html-transcripts": "^3.1.2",
+    "discord.js": "^14.6.0",
+    "fs": "^0.0.1-security",
+    "gamedig": "^4.0.5",
+    "mongoose": "^6.7.3"
+  }
+}
