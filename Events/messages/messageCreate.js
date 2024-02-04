@@ -4,6 +4,10 @@ module.exports = {
     name: 'messageCreate',
 
     async execute(message) {
+
+        if(message.guild.id != "1054804473224110080") {
+            return
+        }
         if(message.author.bot) return;
 
         //console.log(message)

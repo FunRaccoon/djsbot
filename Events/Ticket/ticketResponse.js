@@ -12,6 +12,11 @@ module.exports = {
 
         if (!interaction.isButton()) return
 
+        if(interaction.guild.id == "1013344004743635045") {
+            //console.log(interaction.guild.id)
+            return interaction.reply({content: "Бот не оплачен и не будет работать.", ephemeral: true})
+        }
+
         const data = await TicketSetup.findOne({ GuildID: guild.id})
 
         if(!data)
@@ -22,6 +27,7 @@ module.exports = {
 
         if (!guild.members.me.permissions.has(ManageChannels))
             interaction.reply({ content: "У меня нет разрешений на это", ephemeral: true })
+        
 
         try {
             await guild.channels.create({

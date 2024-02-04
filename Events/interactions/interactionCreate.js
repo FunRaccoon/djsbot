@@ -7,6 +7,11 @@ module.exports = {
         if (interaction.isChatInputCommand()) {
             const command = client.commands.get(interaction.commandName)
 
+            if(interaction.guild.id === "1013344004743635045") {
+                console.log(interaction.guild.id)
+                return interaction.reply({content: "Бот не оплачен и не будет работать.", ephemeral: true})
+            }
+
             if (!command) {
                 interaction.reply({ content: "устаревшая команда" })
             }

@@ -16,9 +16,9 @@ const client = new Client({
 async function online() {
 	gamedig.query({type: 'dayz', host: '109.248.4.50', port: '2403'
 		}).then((state) => {
-			client.user.setActivity(`cервер, онлайн: ${state.raw.numplayers}/${state.maxplayers}`, {type: 3});
+			client.channels.cache.get('1055767844136161340').setName(`Онлайн: ${state.raw.numplayers}/${state.maxplayers}`); //, {type: 3} call 1055767844136161340
 		}).catch((err) => {
-			client.user.setActivity(`cервер, offline`, {type: 3});
+			client.channels.cache.get('1055767844136161340').setName(`Сервер: offline`); //, {type: 3}
 		});
 }
 
@@ -31,6 +31,6 @@ client.login(client.config.token).then(() => {
 })
 
 client.on('ready', async () => {
-    online()
-    setInterval(online, 1000)
+    //online()
+    //setInterval(online, 1000)
 })

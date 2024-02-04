@@ -5,6 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("pdaadmin")
         .setDescription("Отправление сообщения в общую сеть PDA")
+        .setDMPermission(false)
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
         .addStringOption(option =>
             option.setName("name")

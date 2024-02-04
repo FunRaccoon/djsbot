@@ -5,6 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("pda")
         .setDescription("Отправление сообщения в общую сеть PDA")
+        .setDMPermission(false)
         //.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addStringOption(option =>
             option.setName("text")
@@ -29,7 +30,7 @@ module.exports = {
             "1041723317821915247", //freedom  8+
             "1029087229525631016", //un       9+
             "1013346374173081670", //grech    10+
-            "1013346488929234954", //mercenaries 11+
+            "1013346488929234954", //mercenaries 11+🍺
             "1013345656137601054", //sientist    12+
             "1013345968814571620"  //monolith    13+
         ]

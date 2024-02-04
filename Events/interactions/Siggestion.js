@@ -4,13 +4,17 @@ const suggestionSchema = require('../../Models/Suggestion')
 module.exports = {
     name: "interactionCreate",
     async execute(interaction) {
-        const { member, guildId, customId, message, guild, client } = interaction
-
+        const { member, guildId, customId, message, guild } = interaction
+        
         if (!interaction.isButton()) return;
 
         if (customId == "suggest-accept" || customId == "suggest-deceline" || customId == "suggest-process") {
             //if (!member.permissions.has(PermissionFlagsBits.Administrator))
             //return interaction.reply({ content: "У вас нет разрешений на это", ephemeral: true })
+            if(interaction.guild.id == "1054804473224110080") {
+                console.log(interaction.guild.id)
+                return interaction.reply({content: "Бот не оплачен и не будет работать.", ephemeral: true})
+            }
 
             suggestionSchema.findOne({ GuildID: guildId, MessageID: message.id }, async (err, data) => {
                 if (err) throw err;

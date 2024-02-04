@@ -7,7 +7,7 @@ module.exports = {
     name: "interactionCreate",
 
     async execute(interaction) {
-        const { guild, member, customId, channel, client } = interaction
+        const { guild, member, customId, channel } = interaction
         const { ManageChannels, SendMessages } = PermissionFlagsBits
 
         if (!interaction.isButton()) return
@@ -39,7 +39,7 @@ module.exports = {
                     const transcript = await createTranscript(channel, {
                         limit: -1,
                         returnBuffer: false,
-                        filename: `${guild.members.cache.get(data.MembersID[0]).user.username}-ID_${data.TicketID}.html`
+                        filename: `ID_${data.TicketID}.html` //${guild.members.cache.get(data.MembersID[0]).user.username}-
                     })
 
                     await ticketSchema.updateOne({ ChannelID: channel.id }, { Closed: true })
